@@ -35,14 +35,17 @@ public class PaisServicio implements IPaisServicio {
 
     @Override
     public Pais guardar(Pais pais) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'guardar'");
+        return repositorio.save(pais);
     }
 
     @Override
     public boolean eliminar(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
+        try {
+            repositorio.deleteById(id);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
 }
